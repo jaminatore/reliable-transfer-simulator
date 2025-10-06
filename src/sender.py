@@ -111,7 +111,7 @@ def start_sender(connection_ID, loss_rate=0, corrupt_rate=0, max_delay=0, transm
     print("ESTABLISHED A CHANNEL @ {}".format(datetime.datetime.now()))
 
     # step 2: read file
-    filename = 'declaration.txt'
+    filename = 'data/declaration.txt'
     with open(filename, 'r') as f:
         data = f.read()
 
