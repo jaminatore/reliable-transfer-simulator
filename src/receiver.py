@@ -148,7 +148,6 @@ def start_receiver(connection_ID, loss_rate=0.0, corrupt_rate=0.0, max_delay=0.0
                 msg = msg + checksum(msg)
                 # update ACK.
                 ACK = (ACK + 1) % 2
-                # wait 0.1 second (from piazza post 345)
                 time.sleep(0.1)
                 # send message to server.
                 clientSocket.sendall(msg.encode("utf-8"))
@@ -159,7 +158,6 @@ def start_receiver(connection_ID, loss_rate=0.0, corrupt_rate=0.0, max_delay=0.0
                 # compute message to send to server.
                 msg = "  " + str((ACK + 1) % 2) + (22 * " ")
                 msg = msg + checksum(msg)
-                # wait 0.1 second (from piazza post 345)
                 time.sleep(0.1)
                 # send message to server.
                 clientSocket.sendall(msg.encode("utf-8"))
@@ -172,7 +170,6 @@ def start_receiver(connection_ID, loss_rate=0.0, corrupt_rate=0.0, max_delay=0.0
             # compute message to send to server.
             msg = "  " + str((ACK + 1) % 2) + (22 * " ")
             msg = msg + checksum(msg)
-            # wait 0.1 second (from piazza post 345)
             time.sleep(0.1)
             # send message to server.
             clientSocket.sendall(msg.encode("utf-8"))
@@ -204,7 +201,7 @@ def start_receiver(connection_ID, loss_rate=0.0, corrupt_rate=0.0, max_delay=0.0
 if __name__ == '__main__':
     # check arguments
     if len(sys.argv) != 5:
-        print("Expected \"python PA2_receiver.py <connection_id> <loss_rate> <corrupt_rate> <max_delay>\"")
+        print("Expected \"python receiver.py <connection_id> <loss_rate> <corrupt_rate> <max_delay>\"")
         exit()
 
     # assign arguments
