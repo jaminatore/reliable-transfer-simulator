@@ -20,7 +20,7 @@ It consists of two main programs:
 ---
 
 ## Directory Structure
-
+```
 reliable-transfer-simulator/
 ├── src/
 │ ├── sender.py
@@ -35,6 +35,7 @@ reliable-transfer-simulator/
 │ └── screenshots/
 ├── README.md
 └── .gitignore
+```
 
 ---
 
@@ -44,10 +45,10 @@ reliable-transfer-simulator/
 2. Start the receiver in the first terminal.
 3. Start the sender in the second terminal with the same connection ID.
 
-### Start the Receiver (first terminal)
+### Start the Receiver
 ./scripts/run_receiver.sh [connection_id] [loss_rate] [corrupt_rate] [max_delay]
 
-### Start the Sender (second terminal)
+### Start the Sender
 ./scripts/run_sender.sh [connection_id] [loss_rate] [corrupt_rate] [max_delay] [timeout]
 
 Both must use the same connection_id (integer 1000–9999).
@@ -77,10 +78,10 @@ Terminal 2
 | Parameter | Description | Example |
 |------------|--------------|----------|
 | connection_id | Numeric ID (1000–9999) used to pair sender and receiver | 1234 |
-| loss_rate | Probability of packet loss | 0-1 |
-| corrupt_rate | Probability of packet corruption | 0-1 |
-| max_delay | Maximum simulated network delay (seconds) | 0-5 |
-| timeout | Sender retransmission timeout (seconds) | 1-60 |
+| loss_rate | Probability of packet loss | 0.2 |
+| corrupt_rate | Probability of packet corruption | 0.1 |
+| max_delay | Maximum simulated network delay (seconds) | 5 |
+| timeout | Sender retransmission timeout (seconds) | 15 |
 
 ---
 
@@ -90,7 +91,7 @@ Terminal 2
 |------|-----------------|
 | Clean run (0 0 0) | Fast transmission and identical checksums |
 | Moderate loss (0.2 0.1 5) | Retransmissions visible; terminates correctly |
-| Mismatched IDs | Receiver waits (no pairing) |
+| Mismatched IDs | Receiver waits indefinitely |
 | Missing declaration.txt | Sender reports file not found |
 
 At the end of transmission, both sender and receiver should print matching checksums, confirming complete and accurate file transfer.
