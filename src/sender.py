@@ -207,7 +207,7 @@ def start_sender(connection_ID, loss_rate=0, corrupt_rate=0, max_delay=0, transm
 if __name__ == '__main__':
     # check arguments
     if len(sys.argv) != 6:
-        print("Expected \"python PA2_sender.py <connection_id> <loss_rate> <corrupt_rate> <max_delay> <transmission_timeout>\"")
+        print("Expected \"python sender.py <connection_id> <loss_rate> <corrupt_rate> <max_delay> <transmission_timeout>\"")
         exit()
     connection_ID, loss_rate, corrupt_rate, max_delay, transmission_timeout = sys.argv[1:]
     # start sender
