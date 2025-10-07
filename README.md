@@ -31,8 +31,7 @@ reliable-transfer-simulator/
 │ ├── run_sender.sh
 │ └── run_receiver.sh
 ├── docs/
-│ ├── protocol-notes.md
-│ └── screenshots/
+│ └── protocol-notes.md
 ├── README.md
 └── .gitignore
 ```
